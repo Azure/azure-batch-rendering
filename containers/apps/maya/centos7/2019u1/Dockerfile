@@ -1,0 +1,11 @@
+ARG PARENT_TAG
+ARG ACR_SERVER_REPO
+
+FROM $ACR_SERVER_REPO/maya:$PARENT_TAG
+
+ARG INSTALLER_SAS
+
+COPY installMaya2019.sh /tmp/installMaya2019.sh
+COPY maya2019.sh /usr/bin/maya2019.sh
+
+RUN sh /tmp/installMaya2019.sh $INSTALLER_SAS 

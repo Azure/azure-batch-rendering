@@ -1,0 +1,13 @@
+{
+  "containerImage": "$REPO_BASE/maya:$PARENT_TAG-$VER.2018u6",
+  "installerFileBlob": "Centos/Maya2018/Autodesk_MayaIO_2018_6_Update_Linux_64bit.run",
+  "operatingSystem": "centos",
+  "metadata": {
+    "os": "CentOS 75",
+    "app": "maya",
+    "appVersion": "2018-Update6",
+    "renderer": "mayasw",
+    "rendererVersion": "2018-Update6",
+    "imageReferenceId" : "centos-75-container"
+  }
+}

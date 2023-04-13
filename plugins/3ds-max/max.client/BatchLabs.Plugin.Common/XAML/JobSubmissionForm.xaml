@@ -1,0 +1,266 @@
+﻿<UserControl
+    x:Class="BatchLabs.Plugin.Common.XAML.JobSubmissionForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    mc:Ignorable="d" 
+    MinHeight="600" MinWidth="700"
+    d:DesignHeight="750" d:DesignWidth="700"
+    Background="#FF444444"
+    Name="LayoutRoot">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/BatchLabs.Plugin.Common;component/Resources/ControlResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,0" Width="Auto" Grid.Row="0" Grid.Column="0">
+            <Label Name="JobDetailsTitle" Content="Job Details" FontWeight="Bold" />
+            <Grid HorizontalAlignment="Stretch" Margin="0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Name="JobNameLabel" Content="Job ID:" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" />
+                <TextBox Name="JobId" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
+
+                <Label Name="TemplateLabel" Content="Template:" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" />
+                <ComboBox 
+                    x:Name ="RenderTemplates"
+                    ItemsSource="{Binding Path=Templates}" 
+                    SelectedValue="{Binding Path=SelectedTemplate}" 
+                    SelectedValuePath="Key"
+                    DisplayMemberPath="Value"
+                    VerticalContentAlignment="Center"
+                    Height="24" Margin="0,2"
+                    Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                    SelectionChanged="RenderTemplates_SelectionChanged">
+                </ComboBox>
+                <Rectangle Opacity="0" Fill="Transparent" Height="24" Margin="0,2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                    <Rectangle.Style>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=RenderTemplates, Path=IsEnabled}" Value="False">
+                                    <Setter Property="Cursor" Value="No"/>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+
+                <Label Name="FrameStartLabel" Content="Frame Start:" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" />
+                <TextBox Name="FrameStart" Text="1" PreviewTextInput="ValidateNumber" Grid.Row="2" Grid.Column="1" />
+                <Label Name="FrameEndLabel" Content="Frame End:" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2" />
+                <TextBox Name="FrameEnd" Text="1" PreviewTextInput="ValidateNumber" Grid.Row="2" Grid.Column="3" />
+
+                <Label Name="FrameWidthLabel" Content="Frame Width:" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" />
+                <TextBox Name="FrameWidth" PreviewTextInput="ValidateNumber" Grid.Row="3" Grid.Column="1" />
+                <Label Name="FrameHeightLabel" Content="Frame Height:" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="2" />
+                <TextBox Name="FrameHeight" PreviewTextInput="ValidateNumber" Grid.Row="3" Grid.Column="3" />
+
+                <Label Name="RendererLabel" Content="Renderer:" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0" />
+                <ComboBox 
+                    x:Name="RendererType"
+                    ItemsSource="{Binding Path=Renderers}" 
+                    SelectedValue="{Binding Path=SelectedRenderer}" 
+                    SelectedValuePath="Key"
+                    DisplayMemberPath="Value"
+                    VerticalContentAlignment="Center"
+                    Height="24" Margin="0,2"
+                    Grid.Row="4" Grid.Column="1">
+                </ComboBox>
+                <Rectangle Opacity="0" Fill="Transparent" Height="24" Margin="0,2" Grid.Row="4" Grid.Column="1">
+                    <Rectangle.Style>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=RendererType, Path=IsEnabled}" Value="False">
+                                    <Setter Property="Cursor" Value="No"/>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+            </Grid>
+
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Name="AdditionalArgsLabel" Content="Additional Args:" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" />
+                <TextBox Name="AdditionalArgs" Grid.Row="0" Grid.Column="1" />
+
+                <Label Name="AssetsTitle" Content="Scene Details" Foreground="#FFC8C8C8" FontWeight="Bold" Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <Label Name="SceneFileLabel" Content="Max File:" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" />
+                <TextBox Name="SceneFile" IsReadOnly="True" Margin="0,0,0,5" Grid.Row="2" Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <Grid Margin="10,0,10,10" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="115" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                <Label Name="AssetsLabel" Content="Assets Folders:" HorizontalAlignment="Right" />
+                <TextBlock Name="AssetsLabelNote" TextWrapping="WrapWithOverflow" FontSize="10" Padding="0,0,4,0" TextAlignment="Right" Foreground="#FFC8C8C8">
+                        These folders will be uploaded to storage. Right-click for options.
+                </TextBlock>
+            </StackPanel>
+            <Canvas Name="AssetCanvas" Margin="0,0,0,5" Height="Auto" Grid.Row="0" Grid.Column="1">
+                <DataGrid 
+                        Name="AssetListView"
+                        SelectionMode="Single"
+                        GridLinesVisibility="None"
+                        AutoGenerateColumns="False"
+                        ScrollViewer.CanContentScroll="False"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ItemsSource="{Binding Path=AssetDirectories}"
+                        ItemContainerStyle="{StaticResource AssetGridStyle}"
+                        Width="{Binding ActualWidth, ElementName=AssetCanvas}"
+                        Height="{Binding ActualHeight, ElementName=AssetCanvas}"
+                        Background="#FF565656" Foreground="#FFC8C8C8"
+                        Visibility="Visible">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add Folder" Command="{Binding Path=AddDirectoryCommand}" />
+                            <MenuItem Header="Select Parent Folder"  Command="{Binding Path=SelectParentCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" />
+                            <MenuItem Header="Remove Folder" Command="{Binding Path=RemoveDirectoryCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="28" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="RemoveItem" Style="{StaticResource NoChromeButton}" Command="{Binding Path=RemoveDirectoryCommand}" CommandParameter="{Binding Path=Path}">
+                                        <fa:ImageAwesome Name="RemoveAsset" Icon="Close" ToolTip="Remove this folder" Height="10" Foreground="{Binding Path=RemoveButtonBrush}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Folders"  Width="*" IsReadOnly="True" Binding="{Binding Path=Path}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Width="{Binding ActualWidth, ElementName=AssetCanvas}" Height="{Binding ActualHeight, ElementName=AssetCanvas}">
+                    <fa:ImageAwesome Name="AssetListSpinner" Icon="Spinner" Spin="True" Height="40" Width="40" Foreground="#FF3267B6" SpinDuration="3" Visibility="{Binding AssetSpinnerVisibility, Mode=TwoWay}" />
+                </Grid>
+            </Canvas>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                <Label Name="MissingLabel" Content="Missing Assets:" HorizontalAlignment="Right" VerticalContentAlignment="Top" />
+                <TextBlock Name="MissingLabelNote" TextWrapping="WrapWithOverflow" FontSize="10" Padding="0,0,4,0" TextAlignment="Right" Foreground="#FFC8C8C8">
+                        These items cannot be found on disk. Right-click for options.
+                </TextBlock>
+            </StackPanel>
+            <Canvas Name="MissingCanvas" Margin="0,0,0,5" MinHeight="115" Height="Auto" Grid.Row="1" Grid.Column="1">
+                <DataGrid 
+                        Name="MissingListView"
+                        SelectionMode="Single"
+                        GridLinesVisibility="None"
+                        AutoGenerateColumns="False"
+                        ScrollViewer.CanContentScroll="False"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ItemsSource="{Binding Path=MissingAssets}"
+                        ItemContainerStyle="{StaticResource AssetGridStyle}"
+                        Width="{Binding ActualWidth, ElementName=MissingCanvas}"
+                        Height="{Binding ActualHeight, ElementName=MissingCanvas}"
+                        Background="#FF565656" Foreground="#FFC8C8C8"
+                        Visibility="Visible">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Locate missing file"  Command="{Binding Path=FindFileCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="28" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="RemoveItem" Style="{StaticResource NoChromeButton}" Command="{Binding Path=RemoveMissingFileCommand}" CommandParameter="{Binding Path=FullFilePath}">
+                                        <fa:ImageAwesome Name="RemoveMissing"  Icon="Close" ToolTip="Remove this file" Height="10" Foreground="{Binding Path=RemoveButtonBrush}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Missing Scene Files" Width="*" IsReadOnly="True" Binding="{Binding Path=FileName}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Width="{Binding ActualWidth, ElementName=MissingCanvas}" Height="{Binding ActualHeight, ElementName=MissingCanvas}">
+                    <fa:ImageAwesome Name="MissingSpinner"  Icon="Spinner" Spin="True" Height="40" Width="40" Foreground="#FF3267B6" SpinDuration="3" Visibility="{Binding MissingSpinnerVisibility, Mode=TwoWay}" />
+                </Grid>
+            </Canvas>
+
+            <TextBlock Name="MissingNoteLabel" TextWrapping="WrapWithOverflow" Padding="0,0,4,0" FontSize="10" TextAlignment="Center" Foreground="#FFC8C8C8" Grid.Row="2" Grid.Column="1">
+                Right-click to locate any missing assets on disk and select the folder for upload. All asset folders will be uploaded to the<LineBreak />render nodes.
+            </TextBlock>
+        </Grid>
+
+        <Border BorderThickness="0,1,0,0" BorderBrush="#C8C8C8" Height="40" Grid.Row="2" Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="138" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Name="Status" Grid.Column="0" Text="" Margin="5,0,0,0" Width="Auto" Height="Auto" VerticalAlignment="Center" Foreground="#C8C8C8" FontWeight="Bold" HorizontalAlignment="Left" />
+                <Button x:Name="SubmitButton" Grid.Column="1" Content="Submit Job" Height="27" Width="125" Margin="0,0,5,0" HorizontalAlignment="Right" Background="#FF565656" Foreground="#FFC8C8C8" Click="SubmitButton_Click" IsEnabled="False"></Button>
+                <Rectangle Opacity="0" Fill="Transparent" Height="27" Width="125" Margin="0,0,5,0" HorizontalAlignment="Right" Grid.Column="1">
+                    <Rectangle.Style>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=SubmitButton, Path=IsEnabled}" Value="False">
+                                    <Setter Property="Cursor" Value="No"/>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

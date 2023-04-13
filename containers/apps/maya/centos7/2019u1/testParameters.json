@@ -1,0 +1,26 @@
+{
+   "jobName":{
+      "value":"maya-centos7-2019u1"
+   },
+   "poolId":{
+      "value":"maya-centos7-2019u1"
+   },
+   "mayaVersion":{
+      "value":"Maya2019"
+   },
+   "inputFilegroup":{
+      "value":"myfilegroup"
+   },
+   "inputData":{
+      "value":"rendering"
+   },
+   "sceneFile":{
+      "value":"maya.mb"
+   },
+   "additionalflags":{
+      "value":"-of png"
+   },
+   "outputs":{
+      "value":"rendering-output"
+   }
+}

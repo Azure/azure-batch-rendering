@@ -1,0 +1,41 @@
+{
+    "jobName": {
+        "value": ""
+    },
+    "poolId": {
+        "value": ""
+    },
+    "maxVersion": {
+        "value": "2019"
+    },
+    "renderer": {
+        "value": "vray"
+    },
+    "inputFilegroup": {
+        "value": ""
+    },
+    "inputFilegroupSas": {
+        "value": ""
+    },
+    "sceneFile": {
+        "value": ""
+    },
+    "outputName": {
+        "value": "image.jpg"
+    },
+    "additionalArgs": {
+        "value": " "
+    },
+    "jobPriority": {
+        "value": 1
+    },
+    "frameStart": {
+        "value": 0
+    },
+    "frameEnd": {
+        "value": 0
+    },
+    "outputs": {
+        "value": "outputs"
+    }
+}

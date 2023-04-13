@@ -1,0 +1,21 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet publish containers/imagePublishingUtil --configuration $(buildConfiguration)
+  displayName: 'dotnet publish containers/imagePublishingUtil $(buildConfiguration)'
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'ImagePublishingUtil'
+    targetPath: 'containers/imagePublishingUtil/bin/$(buildConfiguration)/netcoreapp2.1/publish'

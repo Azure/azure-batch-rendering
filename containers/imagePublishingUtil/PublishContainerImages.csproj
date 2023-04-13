@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+  <Content Include="..\InstallScripts\**\*.*">
+    <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.5.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+</Project>

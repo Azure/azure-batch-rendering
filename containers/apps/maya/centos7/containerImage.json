@@ -1,0 +1,4 @@
+{
+  "containerImage": "$REPO_BASE/maya:$VER.centos7",
+  "operatingSystem": "centos",
+}

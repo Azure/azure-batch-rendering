@@ -1,0 +1,13 @@
+// Module file for Maya. Helps Maya find resources for VRayForMaya.
++ VRayForMaya2018x64 any /usr/autodesk/mayaIO2018/vray
+PATH +:= bin
+MAYA_SCRIPT_PATH +:=scripts
+MAYA_PLUG_IN_PATH +:=plug-ins
+PYTHONPATH +:=scripts
+VRAY_FOR_MAYA2018_MAIN_x64 := 
+VRAY_FOR_MAYA2018_PLUGINS_x64 := vrayplugins
+VRAY_OSL_PATH_MAYA2018_x64 := opensl
+XBMLANGPATH +:= icons
+VRAY_PATH=/usr/autodesk/mayaIO2018/vray/bin
+VRAY_TOOLS_MAYA2018_x64=/usr/ChaosGroup/V-Ray/Maya2018-x64/bin
+VRAY_OSL_PATH_MAYA2018_x64=/usr/ChaosGroup/V-Ray/Maya2018-x64/opensl

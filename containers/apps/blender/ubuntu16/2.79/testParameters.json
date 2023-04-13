@@ -1,0 +1,29 @@
+{
+   "jobName":{
+      "value":"blender-ubuntu-279-frames"
+   },
+   "poolId":{
+      "value":"blender-ubuntu-279-frames"
+   },
+    "inputData":{
+      "value":"rendering"
+   },
+   "blendFile":{
+      "value":"shapes.blend"
+   },
+   "frameStart":{
+      "value":1
+   },
+   "frameEnd":{
+      "value":1
+   },
+   "outputs":{
+      "value":"rendering-output"
+   },
+   "dedicatedVmCount":{
+      "value":"1"
+   },
+   "vmSize":{
+      "value":"Standard_D2_v2"
+   }
+}

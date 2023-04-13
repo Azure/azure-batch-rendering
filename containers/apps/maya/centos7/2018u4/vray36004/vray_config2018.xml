@@ -1,0 +1,14 @@
+<DefValues>
+ <Value Name="OPEN_CHANGELOG" DataType="value">0</Value>
+ <Value Name="REVERT_INSTALL" DataType="value">1</Value>
+ <Value Name="MAYAROOT" DataType="value">/usr/autodesk/mayaIO2018</Value>
+ <Value Name="MODULEDEST" DataType="value">/usr/autodesk/modules/maya/2018</Value>
+ <Value Name="STDROOT" DataType="value">/usr/ChaosGroup/V-Ray/Maya2018-x64</Value>
+ <Value Name="PLUGINS" DataType="value">/usr/autodesk/mayaIO2018/vray</Value>
+ <Value Name="INSTALL_TYPE" DataType="value">0</Value>
+ <Value Name="REGISTER_RENDERSLAVE_SERVICE" DataType="value">0</Value>
+ <Value Name="MAYA_VERSION" DataType="value">2018</Value>
+ <Value Name="MAYA_MODULES_DIR" DataType="value">2018</Value>
+ <Value Name="REMOTE_LICENSE" DataType="value">0</Value>
+ <Value Name="SHOULDUNINSTALL" DataType="value">1</Value>
+</DefValues>

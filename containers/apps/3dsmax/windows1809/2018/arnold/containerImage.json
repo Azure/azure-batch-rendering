@@ -1,0 +1,5 @@
+{
+  "containerImage": "azurebatchrendering/windows_3dsmax2018",
+  "pathToDockerFile": "windows/3dsmax2018",
+  "installerFileBlob": "windows/Autodesk_3ds_Max_IO_2018_EFGJKPS_Win_part4_64bit.zip"
+}

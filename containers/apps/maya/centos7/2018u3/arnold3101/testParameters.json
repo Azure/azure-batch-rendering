@@ -1,0 +1,26 @@
+{
+   "jobName":{
+      "value":"maya-centos7-2018u3-arnold3101"
+   },
+   "poolId":{
+      "value":"maya-centos7-2018u3-arnold3101"
+   },
+   "mayaVersion":{
+      "value":"Maya2018"
+   },
+   "inputFilegroup":{
+      "value":"myfilegroup"
+   },
+   "inputData":{
+      "value":"rendering"
+   },
+   "sceneFile":{
+      "value":"maya-arnold.mb"
+   },
+   "additionalflags":{
+      "value":"-of png"
+   },
+   "outputs":{
+      "value":"rendering-output"
+   }
+}

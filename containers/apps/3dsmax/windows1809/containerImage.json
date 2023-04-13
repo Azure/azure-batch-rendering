@@ -1,0 +1,5 @@
+{
+    "containerImage": "azurebatchrendering/windows",
+    "pathToDockerFile": "Windows",
+    "installerFileBlob": ""
+}

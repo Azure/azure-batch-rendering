@@ -1,0 +1,44 @@
+﻿<Window x:Class="BatchLabs.Max2019.TestHarness.TestRunner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BatchLabs.Max2019.TestHarness"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="275" Width="475"
+        Background="AliceBlue" ShowInTaskbar="True"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="10">
+            <Label Content="3ds Max 2019" />
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20px"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!-- TODO: would be fairly easy to reflect these out of each assmebly -->
+                <Button Name="JobsButton" Content="Jobs" Grid.Row="0" Grid.Column="0" Width="100" Margin="0,4" Click="JobsButton_Click" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Run the jobs action" VerticalAlignment="Center" />
+                <Button Name="PoolsButton" Content="Pools" Grid.Row="1" Grid.Column="0" Width="100" Margin="0,4" Click="PoolsButton_Click" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="Run the pools action" VerticalAlignment="Center" />
+                <Button Name="DataButton" Content="Data" Grid.Row="2" Grid.Column="0" Width="100" Margin="0,4" Click="DataButton_Click" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="Run the data action" VerticalAlignment="Center" />
+                <Button Name="SubmitButton" Content="Submit Job" Grid.Row="3" Grid.Column="0" Width="100" Margin="0,4" Click="SubmitButton_Click" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="Run the submit job action" VerticalAlignment="Center" />
+            </Grid>
+        </StackPanel>
+        <Label Name="Footer" Grid.Row="1" Height="35" Background="Gainsboro" Padding="10" />
+    </Grid>
+</Window>

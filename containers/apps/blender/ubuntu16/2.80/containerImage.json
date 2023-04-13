@@ -1,0 +1,12 @@
+{
+  "containerImage": "$REPO_BASE/blender:$PARENT_TAG-$VER.280",
+  "operatingSystem": "ubuntu",
+   "metadata": {
+    "os": "Ubuntu 16.04",
+    "app": "blender280",
+    "appVersion": "2.80",
+    "renderer": "cycles",
+    "rendererVersion": "2.80",
+    "imageReferenceId" : "ubuntu-1604lts-container"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "containerImage": "$REPO_BASE/maya:$PARENT_TAG-$VER.arnold3101",
+  "installerFileBlob": "Centos/Maya2018/Arnold/MtoA-3.1.0.1-linux-2018.run",
+  "operatingSystem": "centos",
+  "metadata": {
+    "os": "CentOS 75",
+    "app": "maya",
+    "appVersion": "2018-Update4",
+    "renderer": "arnold",
+    "rendererVersion": "3.1.0.1",
+    "imageReferenceId" : "centos-75-container"
+  }
+}

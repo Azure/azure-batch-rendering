@@ -1,0 +1,6 @@
+{
+  "name": "container-blender-ubuntu-280-frames",
+  "template": "../templates/blender/render-linux-container-280/job.template.json",
+  "poolTemplate": "../templates/blender/render-linux-container-280/pool.template.json",
+  "expectedOutput": "blender-ubuntu-280-frames_0001.png"
+}

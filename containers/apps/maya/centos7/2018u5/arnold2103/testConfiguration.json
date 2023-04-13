@@ -1,0 +1,6 @@
+{
+  "name": "container-maya-centos7-2018u5-arnold2103",
+  "template": "../templates/maya/render-arnold-linux-container/job.template.json",
+  "poolTemplate": "../templates/maya/render-arnold-linux-container/pool.template.json",
+  "expectedOutput": "maya-arnold_0001.exr"
+}

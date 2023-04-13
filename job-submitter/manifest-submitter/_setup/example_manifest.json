@@ -1,0 +1,29 @@
+{
+    "auth": {
+        "batchAccName": "",
+        "batchAccUrl": "",
+        "batchAccSub": "",
+        "storageAccName": "",
+        "storageAccUrl": "",
+        "storageAccSharedKey": "",
+        "servicePrincipalClientId": "",
+        "servicePrincipalSecret": "",
+        "servicePrincipalTenant": ""
+    },
+    "settings": {
+        "jobTemplateFilePath": "./templates/3dsmax-std/job.template.json",
+        "jobParametersFilePath": "./templates/3dsmax-std/job.parameters.json",
+        "parameterMapperPath": "./templates/3dsmax-std/parameter_mapper.py",
+        "mapperModuleName": "parameter_mapper"
+    },
+    "pool": "",
+    "jobs": [
+        {
+            "jobId": "",
+            "container": "",
+            "sceneFile": "",
+            "frameStart": 0,
+            "frameEnd": 0
+        }
+    ]
+}

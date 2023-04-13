@@ -1,0 +1,6 @@
+{
+  "name": "container-maya-centos7-2017u5-vray36004",
+  "template": "../templates/maya/render-vray-linux-container/job.template.json",
+  "poolTemplate": "../templates/maya/render-vray-linux-container/pool.template.json",
+  "expectedOutput": "maya-vray.0001.png"
+}

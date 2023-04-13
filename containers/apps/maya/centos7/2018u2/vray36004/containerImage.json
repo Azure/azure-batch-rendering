@@ -1,0 +1,13 @@
+{
+  "containerImage": "$REPO_BASE/maya:$PARENT_TAG-$VER.vray36004",
+  "installerFileBlob": "Centos/Maya2018/Vray/vray4batch_36004_maya2018_linux_x64",
+  "operatingSystem": "centos",
+  "metadata": {
+    "os": "CentOS 75",
+    "app": "maya",
+    "appVersion": "2018-Update2",
+    "renderer": "vray",
+    "rendererVersion": "36004",
+    "imageReferenceId" : "centos-75-container"
+  }
+}

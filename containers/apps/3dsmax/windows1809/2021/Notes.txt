@@ -1,0 +1,2 @@
+A part of the manifest needs to be ignored in the XML file for 3DS MAX 2021 (./Autodesk/manifest/app.3dsMax.xml) as “Autodesk Desktop app” interferes with the “–silent” argument, when using PowerShell. That would cause an endless install.
+
